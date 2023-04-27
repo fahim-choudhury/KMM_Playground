@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - develop
   pull_request:
     branches:
       - main
+      - develop
 
 jobs:
   build:
@@ -33,39 +35,17 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-#      - name: Setup JDK
-#        uses: actions/setup-java@v2
-#        with:
-#          java-version: '11'
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.2
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-#      - name: Setup KMM
-#        uses: kotlin-actions/setup-kmm@v1
+      - name: Build the project
+        run: bundle exec fastlane build
 
-#      - name: Build KMM Project
-#        run: ./gradlew build
+      - name: Build the Android app
+        run: bundle exec fastlane build_android
 
-#      - name: Build Android App
-#        uses: strvcom/setup-android-build-environment@v2
-#        with:
-#          target-sdk: "31"
-#        run: ./gradlew :androidApp:assembleDebug
-
-      - name: Setup Swift
-        uses: swift-actions/setup-swift@v1
-
-      - name: Build iOS App
-        run: |
-          cd iosApp
-          xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13' build test
-
-#      - name: Deploy Android App
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: Android App
-#          path: androidApp/build/outputs/apk/debug/androidApp-debug.apk
-#
-#      - name: Deploy iOS App
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: iOS App
-#          path: iosApp/build/Debug-iphonesimulator/iosApp.app
+      - name: Run unit tests
+        run: bundle exec fastlane test
