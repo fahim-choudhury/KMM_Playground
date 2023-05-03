@@ -3,6 +3,9 @@
 .idea
 .DS_Store
 build
+.keystore
+.apk
+keystore.properties
 captures
 .externalNativeBuild
 .cxx
