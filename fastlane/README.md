@@ -55,13 +55,21 @@ Cleans the project
 
 Builds the project
 
-### android build_android
+### android assembleDebug
 
 ```sh
-[bundle exec] fastlane android build_android
+[bundle exec] fastlane android assembleDebug
 ```
 
 Builds the Android app
+
+### android assembleRelease
+
+```sh
+[bundle exec] fastlane android assembleRelease
+```
+
+Builds the release APK
 
 ----
 

@@ -48,9 +48,14 @@ platform :android do
   end
 
   desc "Builds the Android app"
-  lane :build_android do
+  lane :assembleDebug do
     gradle(task: "assemble", build_type: "Debug")
   end
+
+  desc "Builds the release APK"
+  lane :assembleRelease do
+      gradle(task: "assemble", build_type: "Release")
+    end
 end
 
 platform :ios do

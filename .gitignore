@@ -11,3 +11,4 @@ captures
 .cxx
 local.properties
 xcuserdata
+/androidApp/keystore

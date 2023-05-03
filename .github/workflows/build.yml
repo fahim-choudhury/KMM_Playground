@@ -41,11 +41,19 @@ jobs:
           ruby-version: 3.1.2
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - name: Build the project
-        run: bundle exec fastlane build
+#      - name: Build the project
+#        run: bundle exec fastlane build
+
+      - name: Setup environment
+        run: |
+          echo -n "${{ secrets.KEYSTORE_PROPERTIES }}" | base64 --decode >> androidApp/keystore.properties
+          openssl enc -aes-256-cbc -pass pass:${{ secrets.KEYSTORE_DECRYPTION_KEY }} -d -in androidApp/keystore.enc -out androidApp/keystore 
 
       - name: Build the Android app
-        run: bundle exec fastlane build_android
+        run: bundle exec fastlane assembleDebug
+
+      - name: Builds the Android release APK
+        run: bundle exec fastlane assembleRelease
 
       - name: Run unit tests
         run: bundle exec fastlane test
