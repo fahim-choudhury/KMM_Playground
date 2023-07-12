@@ -16,7 +16,7 @@ env:
   FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 10
 
 jobs:
-  build_android:
+  build:
     runs-on: macos-13
 
     steps:
@@ -30,7 +30,7 @@ jobs:
       - name: Install gems
         run: bundle install
 
-      - name: Install XCode tools
+      - name: Install Xcode tools
         run: |
           brew install xcbeautify
           brew install xcproj
@@ -45,6 +45,8 @@ jobs:
           #          workspace-path: $GITHUB_WORKSPACE/iosApp/iosApp.xcworkspace # optional
           export-method: ad-hoc
           configuration: Debug
+          certificate-password: ${{ secrets.CERTIFICATE_PASSWORD }}
+
 #          scheme: iosApp-Debug
 
 #      - name: Install Bundler
