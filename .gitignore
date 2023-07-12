@@ -12,3 +12,5 @@ captures
 local.properties
 xcuserdata
 /androidApp/keystore
+/Certificates.p12
+/Provisioning-Profile.mobileprovision
