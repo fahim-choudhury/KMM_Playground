@@ -27,9 +27,6 @@ jobs:
         with:
           xcode-version: 14.3.1
 
-      - name: Install gems
-        run: bundle install
-
       - name: Install Xcode tools
         run: |
           brew install xcbeautify
@@ -46,8 +43,10 @@ jobs:
           export-method: ad-hoc
           configuration: Debug
           certificate-password: ${{ secrets.CERTIFICATE_PASSWORD }}
-
 #          scheme: iosApp-Debug
+
+#      - name: Install gems
+#        run: bundle install
 
 #      - name: Install Bundler
 #        run: gem install bundler
