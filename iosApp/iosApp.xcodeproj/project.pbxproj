@@ -168,7 +168,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n#chmod +x gradlew\n: \"${EXPANDED_CODE_SIGN_IDENTITY:=-}\"\n#export JAVA_HOME='/Users/runner/hostedtoolcache/Java_Zulu_jdk/17.0.7-7/x64'\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n#pwd\necho \"<<<<<----- Running script ------>>>>>\"\n";
+			shellScript = "#cd \"$SRCROOT/..\"\n#chmod +x gradlew\n: \"${EXPANDED_CODE_SIGN_IDENTITY:=-}\"\n#export JAVA_HOME='/Users/runner/hostedtoolcache/Java_Zulu_jdk/17.0.7-7/x64'\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n#pwd\necho \"<<<<<----- Running script ------>>>>>\"\n";
 		};
 		7658BBD62A600E2B002E8C53 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
