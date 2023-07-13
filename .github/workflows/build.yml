@@ -53,7 +53,7 @@ jobs:
           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
           team-id: ${{ secrets.TEAM_ID }}
           export-method: ad-hoc
-#          configuration: Debug
+          configuration: Debug
           certificate-password: ${{ secrets.CERTIFICATE_PASSWORD }}
 #          scheme: iosApp-Debug
 
