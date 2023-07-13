@@ -29,11 +29,11 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '17'
 
-      - uses: gradle/gradle-build-action@v2
-        env:
-          CI: true
-        with:
-            gradle-version: 8.2.1
+#      - uses: gradle/gradle-build-action@v2
+#        env:
+#          CI: true
+#        with:
+#            gradle-version: 8.2.1
 
       - uses: maxim-lobanov/setup-xcode@v1
         with:
