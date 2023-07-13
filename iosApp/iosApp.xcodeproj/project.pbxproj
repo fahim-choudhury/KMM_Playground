@@ -191,7 +191,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n#chmod +x gradlew\n./gradlew :shared:embedAndSignAppleFrameworkForXcode -P\"kotlinVersion\"=\"1.6.0\"\n\n#echo \"<<<<<----- Running script ------>>>>>\"\n";
+			shellScript = "cd \"$SRCROOT/..\"\n#chmod +x gradlew\nexport JAVA_HOME='/Users/runner/hostedtoolcache/Java_Zulu_jdk/17.0.7-7/x64'\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\npwd\necho \"<<<<<----- Running script ------>>>>>\"\n";
 		};
 		D15A8561107FEDCA75215F44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
