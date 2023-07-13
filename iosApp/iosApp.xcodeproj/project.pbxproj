@@ -103,7 +103,6 @@
 				752F9935F807C7E38F48E140 /* Pods-iosApp.debug.xcconfig */,
 				711136E719CA85D0C0A38A57 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -192,7 +191,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+			shellScript = "cd \"$SRCROOT/..\"\nchmod +x gradlew\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
 		};
 		D15A8561107FEDCA75215F44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
