@@ -39,6 +39,9 @@ jobs:
         with:
           xcode-version: 14.3.1
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
       - name: Install Xcode tools
         run: |
           brew install xcbeautify
