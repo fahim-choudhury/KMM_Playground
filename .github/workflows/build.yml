@@ -44,6 +44,11 @@ jobs:
           brew install xcbeautify
           brew install xcproj
 
+      - name: Install kdoctor and show kdoctor output
+        run: |
+          brew install kdoctor
+          kdoctor -v
+
       - uses: yukiarrr/ios-build-action@v1.11.0
         with:
           project-path: ${{ env.XCODE_PROJECT_PATH }}
