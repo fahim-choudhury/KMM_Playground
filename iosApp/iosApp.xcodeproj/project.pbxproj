@@ -113,8 +113,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
-				D15A8561107FEDCA75215F44 /* [CP] Check Pods Manifest.lock */,
 				7555FFB5242A651A00829871 /* ShellScript */,
+				D15A8561107FEDCA75215F44 /* [CP] Check Pods Manifest.lock */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
@@ -191,7 +191,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#cd \"$SRCROOT/..\"\n#chmod +x gradlew\n#./gradlew :shared:embedAndSignAppleFrameworkForXcode\n\necho \"<<<<<----- Running script ------>>>>>\"\n";
+			shellScript = "cd \"$SRCROOT/..\"\n#chmod +x gradlew\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n\n#echo \"<<<<<----- Running script ------>>>>>\"\n";
 		};
 		D15A8561107FEDCA75215F44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
