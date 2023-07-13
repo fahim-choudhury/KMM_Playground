@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -11,12 +13,23 @@ kotlin {
             }
         }
     }
-    
-    listOf(
+
+    val osName = System.getProperty("os.name")
+    val osArch = System.getProperty("os.arch")
+    println("OS Name = $osName")
+    println("OS Name = $osArch")
+
+    val isAppleSilicon = osName == "Mac OS X" && osArch == "aarch64"
+    println("Is Apple Silicon: $isAppleSilicon")
+
+    val targets = mutableListOf<KotlinNativeTarget>(
         iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
+    )
+    if (isAppleSilicon) {
+        targets.add(iosArm64())
+        targets.add(iosSimulatorArm64())
+    }
+    targets.forEach {
         it.binaries.framework {
             baseName = "shared"
         }
